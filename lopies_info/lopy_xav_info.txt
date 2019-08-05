@@ -1,1 +1,6 @@
-To be validated !    xa lopy dev EUI: 70b3d5499ae94b63
+Xa lopy dev EUI: 70b3d5499ae94b63
+
+
+In ENV 2 (for multi connection test):
+otaa:
+app key : 73 4d f0 70 25 3a bc 19 9f a3 7e ea 2a e7 5c 80
