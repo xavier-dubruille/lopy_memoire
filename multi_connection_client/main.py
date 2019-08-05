@@ -11,6 +11,7 @@ import ubinascii
 import machine
 import struct
 import pycom
+from cayenneLPP.CayenneLPP import CayenneLPP
 
 pycom.heartbeat(False)
 ##################
@@ -38,7 +39,16 @@ while True:
 
     pycom.rgbled(0x0000FF) #
     time.sleep(1)
-    s.send(bytes([0x01, 0x02, 0x03]))
+
+    # creating Cayenne LPP packet
+    lpp = CayenneLPP(size = 100, sock = s)
+
+    # adding 2 digital outputs, the first one uses the default channel
+    #lpp.add_digital_input(True)
+    lpp.add_digital_input(False, channel = 68)
+
+    # sending the packet via the socket
+    lpp.send()
 
     pycom.rgbled(0x007f00) # green
     time.sleep(1)
