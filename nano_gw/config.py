@@ -18,7 +18,7 @@ WIFI_MAC = ubinascii.hexlify(machine.unique_id()).upper()
 GATEWAY_ID = WIFI_MAC[:6] + "FFFE" + WIFI_MAC[6:12]
 
 SERVER = '192.168.1.17'
-PORT = 1700
+PORT = 1701
 
 NTP = "pool.ntp.org"
 NTP_PERIOD_S = 3600

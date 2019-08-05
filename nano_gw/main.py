@@ -9,11 +9,18 @@
 #
 
 """ LoPy LoRaWAN Nano Gateway example usage """
-
+import pycom
 import config
+import time
 from nanogateway import NanoGateway
 
 if __name__ == '__main__':
+
+    pycom.heartbeat(False)
+    pycom.rgbled(0xB00000)
+    time.sleep(1)
+    pycom.rgbled(0x000000)
+
     nanogw = NanoGateway(
         id=config.GATEWAY_ID,
         frequency=config.LORA_FREQUENCY,
@@ -26,6 +33,15 @@ if __name__ == '__main__':
         ntp_period=config.NTP_PERIOD_S
         )
 
+    pycom.rgbled(0x0000B0)
+    time.sleep(1)
+    pycom.rgbled(0x000000)
+
+
     nanogw.start()
+    pycom.rgbled(0x00B000)
+    time.sleep(1)
+    pycom.rgbled(0x000000)
+    
     nanogw._log('You may now press ENTER to enter the REPL')
     input()
